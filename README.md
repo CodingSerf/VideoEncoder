@@ -1,2 +1,3 @@
 # videoEncoder
-DEMO: 
+DEMO: [http://www.codingserf.com/demo/videoEncoder/](http://www.codingserf.com/demo/videoEncoder/)  
+![DEMO](https://raw.githubusercontent.com/David-CodingSerf/videoEncoder/master/DEMO.png)
