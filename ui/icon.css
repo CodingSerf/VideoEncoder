@@ -1,0 +1,127 @@
+.icon-blank{
+	background:url('icons/blank.gif') no-repeat center center;
+}
+.icon-add{
+	background:url('icons/add.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('icons/pencil.png') no-repeat center center;
+}
+.icon-remove{
+	background:url('icons/edit_remove.png') no-repeat center center;
+}
+.icon-save{
+	background:url('icons/filesave.png') no-repeat center center;
+}
+.icon-cut{
+	background:url('icons/cut.png') no-repeat center center;
+}
+.icon-ok{
+	background:url('icons/ok.png') no-repeat center center;
+}
+.icon-no{
+	background:url('icons/no.png') no-repeat center center;
+}
+.icon-cancel{
+	background:url('icons/cancel.png') no-repeat center center;
+}
+.icon-reload{
+	background:url('icons/reload.png') no-repeat center center;
+}
+.icon-search{
+	background:url('icons/search.png') no-repeat center center;
+}
+.icon-print{
+	background:url('icons/print.png') no-repeat center center;
+}
+.icon-help{
+	background:url('icons/help.png') no-repeat center center;
+}
+.icon-undo{
+	background:url('icons/undo.png') no-repeat center center;
+}
+.icon-redo{
+	background:url('icons/redo.png') no-repeat center center;
+}
+.icon-back{
+	background:url('icons/back.png') no-repeat center center;
+}
+.icon-sum{
+	background:url('icons/sum.png') no-repeat center center;
+}
+.icon-tab{
+	background:url('icons/tab.png') no-repeat center center;
+}
+.icon-tip{
+	background:url('icons/tip.png') no-repeat center center;
+}
+.icon-film-timeline{
+	background:url('icons/film-timeline.png') no-repeat center center;
+}
+.icon-film{
+	background:url('icons/film.png') no-repeat center center;
+}
+.icon-films{
+	background:url('icons/films.png') no-repeat center center;
+}
+.icon-local{
+	background:url('icons/project_local.png') no-repeat center center;
+}
+.icon-web{
+	background:url('icons/project_web.png') no-repeat center center;
+}
+.icon-submit{
+	background:url('icons/project_submit.png') no-repeat center center;
+}
+.icon-publish{
+	background:url('icons/project_publish.png') no-repeat center center;
+}
+.icon-exit{
+	background:url('icons/exit.png') no-repeat center center;
+}
+.icon-copy{
+	background:url('icons/copy.png') no-repeat center center;
+}
+.icon-paste{
+	background:url('icons/paste.png') no-repeat center center;
+}
+.icon-setting{
+	background:url('icons/setting.png') no-repeat center center;
+}
+.icon-about{
+	background:url('icons/about.png') no-repeat center center;
+}
+.icon-delete{
+	background:url('icons/delete.png') no-repeat center center;
+}
+.icon-tools{
+	background:url('icons/tools.png') no-repeat center center;
+}
+.icon-project-info{
+	background:url('icons/projectinfo.png') no-repeat center center;
+}
+.icon-hotspots-info{
+	background:url('icons/hotspotsinfo.png') no-repeat center center;
+}
+.icon-p3info{
+	background:url('icons/p3.png') no-repeat center center;
+}
+.icon-zoomin{
+	background:url('icons/zoom-in.png') no-repeat center center;
+}
+.icon-zoomout{
+	background:url('icons/zoom-out.png') no-repeat center center;
+}
+
+.icon-faq{
+	background:url('icons/faq.png') no-repeat center center;
+}
+.icon-mini-add{
+	background:url('icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit{
+	background:url('icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh{
+	background:url('icons/mini_refresh.png') no-repeat center center;
+}

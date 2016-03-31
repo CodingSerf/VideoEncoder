@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>VEC</title>
+	<link rel="stylesheet" type="text/css" href="ui/black/easyui.css">
+	<link rel="stylesheet" type="text/css" href="ui/icon.css">
+	<link rel="stylesheet" type="text/css" href="c/scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="c/encoder.css">
+	<script type="text/javascript" src="j/jquery.min.js"></script>
+	<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="j/easeljs-0.7.0.min.js"></script>
+	<script type="text/javascript" src="j/encoder.js"></script>
+</head>
+<body class="easyui-layout">
+	<div id="encoder-layout_north" data-options="region:'north',border:false">
+		<div id="encoder-siteMenuBar">
+	        <a id="encoder-siteMenu_project" href="#" class="easyui-menubutton" data-options="menu:'#encoder-siteSubmenu_project',iconCls:'icon-film',duration:0">Project</a> 
+	        <a id="encoder-siteMenu_edit" href="#" class="easyui-menubutton" data-options="menu:'#encoder-siteSubmenu_edit',iconCls:'icon-edit',duration:0">Edit</a> <!-- 
+	        <a id="encoder-siteMenu_edit" href="#" class="easyui-menubutton" data-options="menu:'#encoder-siteSubmenu_edit',iconCls:'icon-edit',duration:0">热点</a>
+	        <a id="encoder-siteMenu_edit" href="#" class="easyui-menubutton" data-options="menu:'#encoder-siteSubmenu_edit',iconCls:'icon-edit',duration:0">P3信息</a>  -->
+	        <a id="encoder-siteMenu_help" href="#" class="easyui-menubutton" data-options="menu:'#encoder-siteSubmenu_help',iconCls:'icon-tip',duration:0">Help</a> 
+		</div>
+		<div id="encoder-siteSubmenu_project" >
+	        <div id="encoder-menuBtn-localOpen" data-options="iconCls:'icon-local'">Local Open <input id="encoder-menuBtn-localOpenFile" type="file" accept="video/mp4"></div>
+	        <div data-options="iconCls:'icon-web'">Web Open</div>
+	        <div class="menu-sep"></div>
+	        <div data-options="iconCls:'icon-save'">Save</div>
+	        <div data-options="iconCls:'icon-submit'">Submit</div>
+	        <div data-options="iconCls:'icon-publish'">Publish</div>
+	        <div class="menu-sep"></div>
+	        <div data-options="iconCls:'icon-exit'">Exit</div>
+	    </div>
+		<div id="encoder-siteSubmenu_edit">
+	        <div data-options="iconCls:'icon-undo'">Undo</div>
+	        <div data-options="iconCls:'icon-redo'">Redo</div>
+	        <div class="menu-sep"></div>
+	        <div data-options="iconCls:'icon-copy'">Copy</div>
+	        <div data-options="iconCls:'icon-paste'">Paste</div>
+	        <div data-options="iconCls:'icon-cut'">Cut</div>
+	        <div data-options="iconCls:'icon-delete'">Delete</div>
+	        <div class="menu-sep"></div>
+	        <div data-options="iconCls:'icon-selectall'">Select All</div>
+	    </div>
+	    <div id="encoder-siteSubmenu_help">
+	        <div data-options="iconCls:'icon-setting'">Preference</div>
+	        <div class="menu-sep"></div>
+	        <div data-options="iconCls:'icon-about'">About</div>
+	        <div data-options="iconCls:'icon-faq'">Help</div>
+	    </div>
+	</div>
+	<div id="encoder-layout_west" data-options="region:'west',title:' ',iconCls:'icon-tools',maxWidth:55,minWidth:55">
+		<div class="encoder-toolsWrapper">
+			<div title="Select" class="easyui-tooltip encoder-toolBtn encoder-toolBtn_pointer encoder-toolBtn_active" data-options="position:'right'"></div>
+			<div class="encoder-tools-sep"></div>
+			<div title="Rectangle" class="easyui-tooltip encoder-toolBtn encoder-toolBtn_rect" data-options="position:'right'"></div>
+			<div title="Ellipse" class="easyui-tooltip encoder-toolBtn encoder-toolBtn_circle" data-options="position:'right'"></div>
+			<div title="Polygon" class="easyui-tooltip encoder-toolBtn encoder-toolBtn_polygon" data-options="position:'right'"></div>
+			<div class="encoder-tools-sep"></div>
+			<div title="Fill/Border Mode" class="easyui-tooltip encoder-toolBtn encoder-toolBtn_fillMode" data-options="position:'right'"></div>
+			<div title="Show/Hide hotspots" class="easyui-tooltip encoder-toolBtn encoder-toolBtn_showHotspots" data-options="position:'right'"></div>
+			<div class="encoder-tools-sep"></div>
+			<div title="Zoom in +5%" class="easyui-tooltip encoder-toolBtn encoder-toolBtn_zoomin" data-options="position:'right'"></div>
+			<div title="Zoom out -5%" class="easyui-tooltip encoder-toolBtn encoder-toolBtn_zoomout" data-options="position:'right'"></div>
+			<div title="Zoom actual" class="easyui-tooltip encoder-toolBtn encoder-toolBtn_zoomactual" data-options="position:'right'"></div>
+		</div>
+	</div>
+	<div id="encoder-layout_east" data-options="region:'east',split:true,title:'Info',iconCls:'icon-tab'">
+		<div id="encoder-infoTabContainer" class="easyui-tabs" data-options="fit:true,border:false">
+			<div title="Project" class="encoder-infoTab" data-options="iconCls:'icon-project-info'">
+				<div class="easyui-layout" data-options="fit:true,border:false">
+					<div class="encoder-propertyGridWrapper" data-options="region:'north',split:true">
+						<table id="encoder-projectPropertyGrid" class="encoder-propertyGrid "></table>
+					</div>
+					<div class="encoder-listGridWrapper" data-options="region:'center',split:true">
+						<table id="encoder-projectListGrid" class="encoder-listGrid"></table>
+					</div>
+				</div>
+			</div>
+			<div title="Scene" class="encoder-infoTab" data-options="iconCls:'icon-films'">
+				<div class="easyui-layout" data-options="fit:true,border:false">
+					<div class="encoder-propertyGridWrapper" data-options="region:'north',split:true">
+						<table id="encoder-scenePropertyGrid" class="encoder-propertyGrid"></table>
+					</div>
+					<div class="encoder-listGridWrapper" data-options="region:'center',split:true">
+						<table id="encoder-sceneListGrid" class="encoder-listGrid"></table>
+					</div>
+				</div>
+			</div>
+			<div title="Hotspot" class="encoder-infoTab" data-options="iconCls:'icon-hotspots-info'">
+				<div class="easyui-layout" data-options="fit:true,border:false">
+					<div class="encoder-propertyGridWrapper" data-options="region:'north',split:true">
+						<table id="encoder-hotspotPropertyGrid" class="encoder-propertyGrid "></table>
+					</div>
+					<div class="encoder-listGridWrapper" data-options="region:'center',split:true">
+						<table id="encoder-hotspotListGrid" class="encoder-listGrid"></table>
+					</div>
+				</div>
+			</div>
+			<div title="P3Info" class="encoder-infoTab" data-options="iconCls:'icon-p3info'">
+				<div class="easyui-layout" data-options="fit:true,border:false">
+					<div class="encoder-propertyGridWrapper" data-options="region:'north',split:true">
+						<table id="encoder-p3PropertyGrid" class="encoder-propertyGrid "></table>
+					</div>
+					<div class="encoder-listGridWrapper" data-options="region:'center',split:true">
+						<table id="encoder-p3ListGrid" class="encoder-listGrid"></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="encoder-layout_south" data-options="region:'south',split:true,title:'Timeline',iconCls:'icon-film-timeline',tools:'#encoder-timelineTools'">
+		<div id="encoder-timelineTools">
+			<a id="encoder-timeline-btn_zoomIn" title="Zoom in to Timeline" class="easyui-tooltip icon-zoomin encoder-timelineTools-btn" data-options="position:'top'"></a>
+	        <a id="encoder-timeline-btn_zoomOut" title="Zoom out to Timeline" class="easyui-tooltip icon-zoomout encoder-timelineTools-btn" data-options="position:'top'"></a>
+	        <div class="encoder-timelineTools-sep"></div>
+			<a href="javascript:void(0)" title="Add Scene" class="easyui-tooltip icon-add encoder-timelineTools-btn" data-options="position:'top'"></a>
+	        <a href="javascript:void(0)" title="Remove Scene" class="easyui-tooltip icon-remove encoder-timelineTools-btn" data-options="position:'top'"></a>
+	        <div class="encoder-timelineTools-sep"></div>
+		</div>
+		<div id="encoder-timelineWrapper">
+			<div id="encoder-timeline-scale">
+				<canvas id="encoder-timeline-scale-canvas" height="22" width="100"></canvas>
+			</div>
+			<div id="encoder-timelineContainer">
+				<div id="encoder-timeline">
+					<div class="encoder-timeline-sceneWrapper">
+						<div class="encoder-timeline-scene"></div>
+					</div>
+					<div class="encoder-timeline-hotspotWrapper"></div>
+					<div class="encoder-timeline-hotspotWrapper"></div>
+					<div class="encoder-timeline-hotspotWrapper"></div>
+					<div class="encoder-timeline-hotspotWrapper"></div>
+				</div>
+			</div>
+			<div id="encoder-timeline-pointerWrapper">
+				<div id="encoder-timeline-pointerHandle"></div>
+				<div id="encoder-timeline-pointer"></div>
+			</div>
+		</div>
+	</div>
+	<div id="encoder-layout_center" data-options="region:'center',title:'Just do it'">
+		<div id="encoder-hotspotsEditArea">
+			<div class="encoder-vpWrapper">
+				<div class="encoder-vpInner">
+					<div id="encoder-vpContainer">
+						<div class="encoder-dragTips">
+							<span>将 .mp4 视频文件拖到这里</span><br/><br/>
+							或<br/>
+							点击上面的 [Projects] > [Local Open] 直接打开
+						</div>
+						<video id="encoder-video" preload="auto" src="">
+							<!-- http://jspro.brothercake.com/media-events/media/BadgerWatch.mp4?nocache=1380506099374 -->
+							<!-- http://www.w3schools.com/tags/mov_bbb.mp4 -->
+						</video>
+						<!-- <div id="encoder-canvasStageWrapper" class="encoder-hotspotsEditor">
+							 -->
+						<canvas id="encoder-canvasStage" width="600" height="300">
+								your browser can't support canvas element
+						</canvas>
+						<!-- </div> -->
+						<div id="encoder-vpLoading"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="encoder-vpControlsBar">
+			<div id="encoder-vpControls">
+				<div id="encoder-vpControls-playbtn" class="encoder-vpControls-btn encoder-vpControls-btn_play"></div>
+				<div id="encoder-vpControls-btn_stop" class="encoder-vpControls-btn"></div>
+				<div id="encoder-vpControls-btn_fastRewind" class="encoder-vpControls-btn"></div>
+				<div id="encoder-vpControls-btn_fastForward" class="encoder-vpControls-btn"></div>
+				<div id="encoder-vpControls-timeline">
+						<div id="encoder-vpControls-timelineBufferProgress"></div>
+						<div id="encoder-vpControls-timelinePlayProgress">
+							<div id="encoder-vpControls-timelineHandle"></div>
+						</div>
+				</div>
+				<div id="encoder-vpControls-timeInfo">
+					<span id="encoder-vpControls-curTime">0:00:00.000</span> / <span id="encoder-vpControls-duration">0:00:00.000</span>
+				</div>
+				<div id="encoder-vpControls-btn_volume" class="encoder-vpControls-btn encoder-vpControls-btn_volume_loud">
+				</div>
+				<div id="encoder-vpControls-volumeSlider">
+					<div id="encoder-vpControls-volumeSliderHandle"></div>
+				</div>
+				<div id="encoder-vpControls-btn_loop" class="encoder-vpControls-btn encoder-vpControls-btn_loop_off"></div>
+				<div id="encoder-vpControls-btn_snapshot" class="encoder-vpControls-btn"></div>
+			</div>	
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,427 @@
+/*layout*/
+html,body{
+	background-color: #3d3d3d;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#encoder-layout_north{
+	height: 40px;
+}
+#encoder-layout_west{
+	width: 55px;
+    overflow-x:hidden;
+}
+#encoder-layout_east{
+	width: 325px;
+}
+#encoder-layout_south{
+	height: 160px;
+}
+#encoder-layout_center{
+	position: relative;
+	background-image:-webkit-radial-gradient(center center,circle,#666,#222);
+	background-image:-moz-radial-gradient(center center,circle,#666,#222);
+	background-image:-ms-radial-gradient(center center,circle,#666,#222);
+	background-image:-o-radial-gradient(center center,circle,#666,#222);
+	background-image:radial-gradient(center center,circle,#666,#222);
+}
+#encoder-siteMenuBar{
+	height: 26px;
+	margin: 7px;
+	padding-left: 60px;
+	background: url(i/home.png) no-repeat 10px center;
+}
+/*north menu*/
+#encoder-siteSubmenu_project,#encoder-siteSubmenu_edit,#encoder-siteSubmenu_help{
+    width:140px;
+}
+#encoder-menuBtn-localOpen{
+    position: relative;
+}
+#encoder-menuBtn-localOpenFile{
+    width:210px;
+    margin:0;
+    position:absolute;
+    left:-70px; 
+    top:0;
+    opacity:0;
+    z-index:1;
+}
+/* Tools(West) */
+.encoder-toolsWrapper{
+    width: 32px;
+    padding: 5px 0;
+    margin: 0 auto;
+}
+.encoder-tools-sep{
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #777;
+    margin: 8px 0;
+}
+.encoder-toolBtn{
+    width: 32px;
+    height: 32px;
+    margin-top: 5px;
+    border-radius: 4px;
+    background: url(i/tools/btns.png) no-repeat center 0;
+}
+.encoder-toolBtn:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,.5) inset;
+}
+.encoder-toolBtn:active,.encoder-toolBtn_active{
+    box-shadow: 0 0 12px rgba(0,0,0,.8) inset;
+}
+.encoder-toolBtn_pointer{
+    background-position: center 0;
+}
+.encoder-toolBtn_rect{
+    background-position: center -32px;
+}
+.encoder-toolBtn_circle{
+    background-position: center -64px;
+}
+.encoder-toolBtn_polygon{
+    background-position: center -96px;
+}
+.encoder-toolBtn_zoomin{
+    background-position: center -128px;
+}
+.encoder-toolBtn_zoomactual{
+    background-position: center -192px;
+}
+.encoder-toolBtn_zoomout{
+    background-position: center -160px;
+}
+.encoder-toolBtn_showHotspots{
+    background-position: center -224px;
+}
+.encoder-toolBtn_hideHotspots{
+    background-position: center -256px;
+}
+.encoder-toolBtn_fillMode{
+    background-position: center -320px;
+}
+.encoder-toolBtn_borderMode{
+    background-position: center -288px;
+}
+/* Info (East)*/
+.encoder-propertyGridWrapper{
+    width: 100%;
+    height: 300px;
+    border-width: 0 0 1px;
+}
+.encoder-listGridWrapper{
+    width: 100%;
+    border-width: 1px 0 0;
+} 
+.encoder-listGridWrapper .datagrid-body td{
+    border:1px dotted transparent;
+}
+/*player*/
+#encoder-hotspotsEditArea{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 40px;
+	overflow: auto;
+}
+.encoder-vpWrapper{
+	height: 100%;
+	display: table;
+	margin: 0 auto;
+}
+.encoder-dragTips{
+    position: absolute;
+    top: 50%;
+    z-index: 0;
+    margin-top: -40px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2em;
+    letter-spacing: 0.05em;
+}
+.encoder-dragTips span{
+    font-size: 1.5em;
+}
+.encoder-vpInner{
+	padding: 100px;
+	display: table-cell;
+	vertical-align: middle;
+}
+#encoder-vpContainer{
+    width: 600px;
+    height: 300px;
+	background: #000;
+	border: 1px solid #ddd;
+	position: relative;
+    overflow: hidden;
+}
+#encoder-video{
+	display: block;
+	width: 100%;
+	height: 100%;
+    position: relative;
+    z-index: 1;
+}
+#encoder-canvasStage{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+#encoder-vpLoading{
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    background: #fff url(i/loading.gif) no-repeat center center;
+    opacity: .5;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #fff;
+    display: none;
+}
+/*播放器控制条*/
+.encoder-vpControlsBar{
+	width: 100%;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+    overflow: hidden;
+	/* background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.2, rgba(255,255,255,.5)), to(rgba(0,0,0,.5)));
+	background-image: -webkit-linear-gradient(rgba(255,255,255,.5) 20%, rgba(0,0,0,.5));
+	background-image: -moz-linear-gradient(rgba(255,255,255,.5) 20%, rgba(0,0,0,.5));
+	background-image: -o-linear-gradient(rgba(255,255,255,.5) 20%, rgba(0,0,0,.5));
+	background-image: linear-gradient(rgba(255,255,255,.5) 20%, rgba(0,0,0,.5)); */
+	box-shadow: -5px 0 6px rgba(0,0,0,1);
+	border-top: 1px solid #666;
+	box-sizing: border-box;
+}
+#encoder-vpControls{
+    width: 98%;
+    height: 32px;
+    padding: 4px 1%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: box;
+    display: flex;
+}
+.encoder-vpControls-btn{
+    width: 32px;
+    height: 32px;
+    margin: 0 3px;
+    opacity: .8;
+    cursor: pointer;
+    float: left;
+    background: url(i/ctrls/btns.png) no-repeat;
+}
+.encoder-vpControls-btn:hover{
+    opacity: 1;
+}
+.encoder-vpControls-btn_play{
+    background-position: center 0;
+}
+.encoder-vpControls-btn_pause{
+    background-position: center -32px;
+}
+#encoder-vpControls-btn_stop{
+    background-position: center -64px;
+}
+#encoder-vpControls-btn_fastRewind{
+    background-position: center -96px;
+}
+#encoder-vpControls-btn_fastForward{
+    background-position: center -128px;
+}
+.encoder-vpControls-btn_loop_off{
+    background-position: center -160px;
+}
+.encoder-vpControls-btn_loop_on{
+    background-position: center -192px;
+}
+#encoder-vpControls-btn_snapshot{
+    background-position: center -224px;
+}
+.encoder-vpControls-btn_volume_mute{
+    background-position: center -256px;
+}
+.encoder-vpControls-btn_volume_low{
+    background-position: center -288px;
+}
+.encoder-vpControls-btn_volume_loud{
+    background-position: center -320px;
+}
+#encoder-vpControls-timeline{
+    height: 20px;
+    margin: 5px 15px;
+    position: relative;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex:1;
+    -moz-flex:1;
+    -ms-flex:1;
+    -o-flex:1;
+    flex:1;
+    background: #222;
+    box-shadow: 0 0 12px rgba(0,0,0,.8) inset;
+}
+#encoder-vpControls-timelinePlayProgress{
+    width: 0;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: #123;
+}
+#encoder-vpControls-timelineBufferProgress{
+    width: 0;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background: rgba(100,100,100,.2);
+}
+#encoder-vpControls-timelineHandle{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -5px;
+    right: -14px;
+    z-index: 1;
+    opacity: .7;
+    cursor: pointer;/* 
+    outline: 1px dashed #000; */
+    background: url(i/ctrls/timeline-handle.png) no-repeat center center;
+}
+#encoder-vpControls-timelimeHandle:hover{
+    opacity: 1;
+}
+#encoder-vpControls-timeInfo{
+    height: 32px;
+    margin: 0 3px;
+    line-height: 32px;
+    color: #777;
+    white-space:nowrap;
+}
+#encoder-vpControls-curTime{
+    color: #fff;
+}
+#encoder-vpControls-volumeSlider{
+    width: 100px;
+    height: 10px;
+    margin: 10px 10px 0 8px;
+    position: relative;
+    border-radius: 5px;
+    background: #222;
+    box-shadow: 0 0 12px rgba(0,0,0,.8) inset;
+}
+#encoder-vpControls-volumeSliderHandle{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin: -8px 0 0 -8px;
+    cursor: pointer;
+    opacity: .8;
+    background: url(i/ctrls/volume-handle.png) no-repeat center center;
+}
+#encoder-vpControls-volumeSliderHandle:hover{
+    opacity: 1;
+}
+
+/* timeline */
+a.encoder-timelineTools-btn{
+    margin-right: 8px;
+    cursor: pointer;
+}
+.encoder-timelineTools-sep{
+    display: inline-block;
+    height: 20px;
+    border-left: 1px solid #222;
+    border-right: 1px solid #777;
+    margin: -2px 8px 0 3px;
+}
+#encoder-timelineWrapper{
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+#encoder-timeline-scale{
+    width: 100%;
+    height: 22px;
+    border-bottom: 1px solid #000;
+    /*background: url(i/timeline/scale.png) repeat-x left top;*/
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0,0,0,.6);
+}
+#encoder-timeline-pointerWrapper{
+    width: 32px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    margin-left: -16px;
+}
+#encoder-timeline-pointerHandle{
+    width: 28px;
+    height: 18px;
+    border: 2px solid #a3ec4c;
+    cursor: pointer;
+}
+#encoder-timeline-pointer{
+    width: 0;
+    border-style: none solid;
+    border-width: 0 1px;
+    border-color: transparent #a3ec4c;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    bottom: 0;
+}
+#encoder-timelineContainer{
+    position: absolute;
+    top: 23px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    z-index: 0;
+}
+#encoder-timeline{
+    width: 2000px;
+}
+.encoder-timeline-sceneWrapper{
+    width: 100%;
+    height: 22px;
+    padding: 5px 0;
+    border-bottom: 1px solid #000;
+    background: url(i/timeline/scene.png) repeat-x left center;
+}
+.encoder-timeline-hotspotWrapper{
+    width: 100%;
+    height: 22px;
+    border-bottom: 1px solid #000;
+    background: url(i/timeline/star.png) repeat-x left center;
+}
